@@ -9,4 +9,5 @@
  :aliases {:dev    {:extra-paths ["dev"]
                     :extra-deps  {ring/ring-devel {:mvn/version "1.6.3"}}
                     :main-opts   ["-m" "hotreload"]}
-           :export {:exec-fn core/export}}}
+           :export {:exec-fn core/export
+                    :exec-args {:target-dir "out"}}}}

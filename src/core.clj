@@ -14,8 +14,6 @@
 (defn -main [& _args]
   (jetty/run-jetty app {:port 3000}))
 
-(def target-dir "out")
-
-(defn export [& _args]
+(defn export [{:keys [target-dir]}]
   (stasis/empty-directory! target-dir)
   (stasis/export-pages pages target-dir))
