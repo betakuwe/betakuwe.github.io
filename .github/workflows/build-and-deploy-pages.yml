@@ -34,11 +34,9 @@ jobs:
       - name: Build pages with custom alias
         run: | 
           clojure -X:export
-          echo
-          echo
           ls -l
-          echo
-          echo
+          chmod -R 777 ./out
+          ls -l
 
       - name: Upload artifact
         id: upload-artifact
