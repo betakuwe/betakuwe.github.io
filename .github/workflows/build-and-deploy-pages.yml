@@ -32,7 +32,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build pages with custom alias
-        run: clojure -X:export
+        run: | 
+          clojure -X:export
+          echo
+          echo
+          ls -l
+          echo
+          echo
 
       - name: Upload artifact
         id: upload-artifact
