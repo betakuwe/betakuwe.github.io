@@ -1,0 +1,12 @@
+;; https://kozieiev.com/blog/clojure-cli-tools-deps-deps-edn-guide/
+{:paths   ["src" "dev"]
+ :deps    {;org.clojure/clojurescript {:mvn/version "1.10.520"}
+           hiccup/hiccup           {:mvn/version "2.0.0-RC3"}
+           ring/ring-core          {:mvn/version "1.12.1"}
+           ring/ring-devel         {:mvn/version "1.12.1"}
+           ring/ring-jetty-adapter {:mvn/version "1.12.1"}
+           stasis/stasis           {:mvn/version "2023.11.21"}}
+ :aliases {:dev    {:extra-paths ["dev"]
+                    :extra-deps  {ring/ring-devel {:mvn/version "1.6.3"}}
+                    :main-opts   ["-m" "hotreload"]}
+           :export {:exec-fn core/export}}}

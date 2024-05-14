@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Export" type="ClojureScriptRunConfiguration" factoryName="Clojure Script">
+    <option name="configVersion" value="1" />
+    <option name="execution" value="DEPS" />
+    <module name="betakuwe.github.io" />
+    <option name="options" value="-X:export" />
+    <option name="profiles" />
+    <option name="type" value="OPTIONS" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <method v="2" />
+  </configuration>
+</component>
