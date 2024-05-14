@@ -1,3 +1,4 @@
+# https://medium.com/@mpaternostro/how-to-deploy-pages-on-github-using-actions-a9281d03b345
 name: Build and deploy pages
 run-name: Build and deploy pages
 on: [ push ]
@@ -31,6 +32,7 @@ jobs:
         id: upload-artifact
         uses: actions/upload-artifact@v4
         with:
+          name: github-pages
           path: ./out
           if-no-files-found: error
   deploy:
