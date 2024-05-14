@@ -5,15 +5,11 @@ run-name: Build and deploy pages
 on: [ push, workflow_dispatch ]
 
 permissions:
-  pages: write
   id-token: write
+  pages: write
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build pages with custom alias
-        run: | 
+        run: |
           clojure -X:export
           ls -l
           chmod -R 777 ./out
@@ -46,6 +42,16 @@ jobs:
           path: ./out
           if-no-files-found: error
 
+  deploy:
+    needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
