@@ -17,15 +17,15 @@ jobs:
         with:
           cli: 1.11.3.1463 # use appropriate version
 
-      - name: Cache clojure dependencies (Optional)
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.m2/repository
-            ~/.gitlibs
-            ~/.deps.clj
-          key: cljdeps-${{ hashFiles('deps.edn') }}
-          restore-keys: cljdeps-
+#      - name: Cache clojure dependencies (Optional)
+#        uses: actions/cache@v4
+#        with:
+#          path: |
+#            ~/.m2/repository
+#            ~/.gitlibs
+#            ~/.deps.clj
+#          key: cljdeps-${{ hashFiles('deps.edn') }}
+#          restore-keys: cljdeps-
 
       - name: Check out current repo
         uses: actions/checkout@v4
