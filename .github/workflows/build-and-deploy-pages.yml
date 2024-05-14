@@ -4,9 +4,15 @@ run-name: Build and deploy pages
 
 on: [ push, workflow_dispatch ]
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   id-token: write
   pages: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -28,11 +34,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build pages with custom alias
-        run: |
-          clojure -X:export
-          ls -l
-          chmod -R 777 ./out
-          ls -l
+        run: clojure -X:export
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         id: upload-artifact
@@ -40,7 +45,6 @@ jobs:
         with:
           name: github-pages # Must use this name
           path: ./out
-          if-no-files-found: error
 
   deploy:
     needs: build
