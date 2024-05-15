@@ -10,6 +10,7 @@
             [optimus.assets :as assets]
             [optimus.optimizations :as optimizations]
             [optimus.strategies :refer [serve-live-assets]]
+            [optimus.export]
             [talltale.core :refer [lorem-ipsum]]))
 
 (def canonical
@@ -66,5 +67,7 @@
   "Builds and exports the website to `target-dir`.
   Configured in `deps.edn`."
   [{:keys [target-dir]}]
-  (stasis/empty-directory! target-dir)
-  (stasis/export-pages pages target-dir))
+  (let [assets (optimizations/all (get-assets) {})]
+    (stasis/empty-directory! target-dir)
+    (optimus.export/save-assets assets target-dir)
+    (stasis/export-pages pages target-dir)))
