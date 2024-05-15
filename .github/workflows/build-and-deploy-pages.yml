@@ -33,9 +33,6 @@ jobs:
       - name: Check out current repo
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Build pages with custom alias
         run: clojure -X:export
 
