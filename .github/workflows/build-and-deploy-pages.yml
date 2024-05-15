@@ -11,7 +11,7 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -22,8 +22,8 @@ jobs:
       - name: Setup java (required by clojure)
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu' # use appropriate distribution
-          java-version: '21' # use appropriate version
+          distribution: zulu # use appropriate distribution
+          java-version: 21 # use appropriate version
 
       - name: Install clojure tools
         uses: DeLaGuardo/setup-clojure@12.5
