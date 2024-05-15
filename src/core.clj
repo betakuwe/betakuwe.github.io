@@ -2,7 +2,7 @@
   (:require [stasis.core :as stasis]
             [ring.middleware.content-type :refer [wrap-content-type]]
             [ring.adapter.jetty :as jetty]
-            [hiccup2.core :as h]
+            [hiccup.page :as h]
             [garden.core :refer [css]]
             [garden.units :refer [cm]]
             [garden.color :refer [rgb rgba]]
@@ -14,38 +14,36 @@
             [talltale.core :refer [lorem-ipsum]]))
 
 (def canonical
-  [:html
-   {:lang "en"}
-   [:head
-    [:title "Benjamin Tan Kuan Wei"]
-    [:meta {:name    "description"
-            :content "Personal website of Benjamin Tan Kuan Wei"}]
-    [:meta {:charset "utf-8"}]
-    [:meta {:name    "viewport"
-            :content "width=device-width, initial-scale=1.0"}]
-    [:base {:href "/"}]
-    [:link {:rel "stylesheet" :href "css/reset.css"}]
-    [:style (css [[:body {:color "blue"
-                          :background (rgb 204 204 204)}]
-                  [:#resume {:color "black"
-                             :background "white"
-                             :max-width (cm 21)
-                             :max-height (cm 29.7)
-                             :display "block"
-                             :margin [0 "auto"]
-                             :margin-bottom (cm 0.5)
-                             :box-shadow [0 0 (cm 0.5) (rgba 0 0 0 0.5)]
-                             :margin-left "auto"
-                             :margin-right "auto"}]])]
-    [:body
-     [:header "oh no"]
-     [:img {:src "images/display_profile.png"}]
-     [:h1 "betakuwe"]
-     [:h2 "profile"]
-     [:article#resume
-      (apply str (repeatedly 10 lorem-ipsum))]]]])
+  [:head
+   [:title "Benjamin Tan Kuan Wei"]
+   [:meta {:name    "description"
+           :content "Personal website of Benjamin Tan Kuan Wei"}]
+   [:meta {:charset "utf-8"}]
+   [:meta {:name    "viewport"
+           :content "width=device-width, initial-scale=1.0"}]
+   [:base {:href "/"}]
+   [:link {:rel "stylesheet" :href "css/reset.css"}]
+   [:style (css [[:body {:color      "blue"
+                         :background (rgb 204 204 204)}]
+                 [:#resume {:color         "black"
+                            :background    "white"
+                            :max-width     (cm 21)
+                            :max-height    (cm 29.7)
+                            :display       "block"
+                            :margin        [0 "auto"]
+                            :margin-bottom (cm 0.5)
+                            :box-shadow    [0 0 (cm 0.5) (rgba 0 0 0 0.5)]
+                            :margin-left   "auto"
+                            :margin-right  "auto"}]])]
+   [:body
+    [:header "oh no"]
+    [:img {:src "images/display_profile.png"}]
+    [:h1 "betakuwe"]
+    [:h2 "profile"]
+    [:article#resume
+     (apply str (repeatedly 10 lorem-ipsum))]]])
 
-(def pages {"/index.html" (str (h/html canonical))})
+(def pages {"/index.html" (str (h/html5 {:lang "en"} canonical))})
 
 (defn get-pages [] pages)
 
