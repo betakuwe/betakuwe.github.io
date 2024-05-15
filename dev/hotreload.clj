@@ -7,5 +7,7 @@
 (def dev-handler
   (wrap-reload app))
 
-(defn -main [& _args]
-      (run-jetty dev-handler {:port 13000}))
+(defn -main
+  "Runs a dev session with hot reloading on http://localhost:13000."
+  [& _args]
+  (run-jetty dev-handler {:port 13000}))
