@@ -2,7 +2,7 @@
   (:require [stasis.core :as stasis]
             [ring.middleware.content-type :refer [wrap-content-type]]
             [ring.adapter.jetty :as jetty]
-            [hiccup.page :as h]
+            [hiccup.page :refer [html5]]
             [garden.core :refer [css]]
             [garden.units :refer [cm]]
             [garden.color :refer [rgb rgba]]
@@ -43,7 +43,7 @@
     [:article#resume
      (apply str (repeatedly 10 lorem-ipsum))]]])
 
-(def pages {"/index.html" (str (h/html5 {:lang "en"} canonical))})
+(def pages {"/index.html" (html5 {:lang "en"} canonical)})
 
 (defn get-pages [] pages)
 
