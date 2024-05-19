@@ -9,7 +9,7 @@
             [garden.units :refer [cm vw in px mm em percent]]
             [garden.color :refer [rgb rgba]]
             [garden.stylesheet :refer [at-media]]
-            [garden.selectors :refer [nth-child] :as s]
+            [garden.selectors :refer [nth-child] :as sel]
             [optimus.prime :as optimus]
             [optimus.assets :as assets]
             [optimus.optimizations :as optimizations]
@@ -116,7 +116,7 @@
                                     :border-radius (em 0.5)}
                           [:&:first-child {:flex 2}
                            (mobile-view [:& {:flex-basis "max-content"}])]
-                          [(& (nth-child "2")) {:flex 5}]
+                          [(sel/& (nth-child "2")) {:flex 5}]
                           [:&.intro {:background "#F8F4FF"}]
                           [:&.body {:background floral-white}]]]
                         [:.box-shadow
