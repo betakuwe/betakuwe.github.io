@@ -6,9 +6,10 @@
             [hiccup2.core :refer [html]]
             [hiccup.util :refer [raw-string]]
             [garden.core :refer [css]]
-            [garden.units :refer [cm vw in px mm em]]
+            [garden.units :refer [cm vw in px mm em percent]]
             [garden.color :refer [rgb rgba]]
             [garden.stylesheet :refer [at-media]]
+            [garden.selectors :refer [nth-child] :as s]
             [optimus.prime :as optimus]
             [optimus.assets :as assets]
             [optimus.optimizations :as optimizations]
@@ -16,11 +17,17 @@
             [optimus.export]
             [talltale.core :refer [lorem-ipsum]]))
 
+(def headers [:h1 :h2 :h3 :h4 :h5 :h6])
+(defn mobile-view [body]
+  (at-media {:max-width (px 600)} body))
+
 ;; https://coolors.co/393d3f-fdfdff-c6c5b9-595934
 (def onyx "#393D3F")
-(def snow "#F6F1F4")
-(def serenity "#B1C9E8")
-(def dark-blue "#212E52")
+(def floral-white "#FFFAF0")
+(def lavender "#D8D1E3")
+(def advent-purple "#4B365F")
+(def silver "#BDACA4")
+(def burnt-orange "#CB6015")
 (def chamoisee "#9C8457")
 (def dutch-white "#E8D5B0")
 (def drab-dark-brown "#524421")
@@ -33,9 +40,9 @@
      [:link {:rel         "preconnect"
              :href        "https://fonts.gstatic.com"
              :crossorigin ""}]
-     [:link {:href "https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+     [:link {:href "https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
              :rel  "stylesheet"}]
-     [:title "Benjamin Tan Kuan Wei"]
+     [:title "Benjamin Tan's résumé"]
      [:meta {:name    "description"
              :content "Résumé of Benjamin Tan Kuan Wei"}]
      [:meta {:charset "utf-8"}]
@@ -51,24 +58,27 @@
                           :size   :a4}]
                         [:html
                          {:zoom                1.5
-                          :background          serenity
-                          :font-family         ["Poppins" :sans-serif]
+                          :background          silver
+                          :font-family         ["Fira Sans" :sans-serif]
                           :font-optical-sizing :auto}
                          (at-media {:print true}
-                                   [:& {:zoom 1}])]
+                                   [:& {:zoom                       1
+                                        :-webkit-print-color-adjust "exact"
+                                        :print-color-adjust         "exact"}])
+                         (mobile-view [:& {:zoom 1}])]
                         [:h1 :h2 :h3 :h4 :h5 :h6
-                         {:font-family ["Inconsolata" :monospace]}]
+                         {:font-family ["Fira Code" :monospace]}]
                         [:h1 {:font-size (em 1.2)}]
                         [:body :h1 :h2 :h3 :h4 :h5 :h6 :p
-                         {:margin 0}]
+                         {:margin      0
+                          :font-weight 400}]
                         [:header
-                         {:position      :sticky
-                          :top           0
-                          :z-index       999
-                          :background    onyx
-                          :color         snow
-                          :margin-bottom (em 2)
-                          :padding       [[(em 0.5) 0]]}
+                         {:position   :sticky
+                          :top        0
+                          :z-index    999
+                          :background onyx
+                          :color      "white"
+                          :padding    [[(em 0.5) 0]]}
                          [:section
                           {:margin          [[0 :auto]]
                            :display         :flex
@@ -76,42 +86,97 @@
                            :gap             (em 0.5)
                            :padding         0
                            :justify-content :space-evenly}
-                          [:button {:background    serenity
-                                    :color         dark-blue
-                                    :border-radius (em 0.5)}]]]
+                          [:div {:display     "flex"
+                                 :flex-flow   [["row" "wrap"]]
+                                 :gap         (em 1)
+                                 :align-items "center"}]
+                          [:button {:background    lavender
+                                    :color         advent-purple
+                                    :border-radius (em 0.5)
+                                    :padding       [[0 (em 1)]]}]]]
                         [:#resume
                          {:color         onyx
-                          :background    snow
+                          :background    "white"
                           :max-width     (mm 210)
-                          :height        (mm 297)
-                          :display       :block
-                          :margin        [[0 :auto]]
-                          :padding       (in 0.2)
-                          :border-radius (em 0.5)}
+                          :height        (mm 280)
+                          :margin        [[(em 2) :auto]]
+                          :padding       (em 1)
+                          :border-radius (em 0.5)
+                          :display       "flex"
+                          :flex-flow     [["row" "wrap"]]
+                          :gap           (px 1)
+                          :font-size     "smaller"}
                          (at-media {:print true}
                                    [:& {:border-radius 0
-                                        :background "white"
-                                        :color "black"}])
+                                        :margin        0}])
                          [:h1 :h2 :h3 :h4 :h5 :h6
-                          {:color dark-blue}]]
-                        [:#resume :header
-                         {:box-shadow [[0 0 (px 5) onyx]]}]]))]
+                          {:color advent-purple}]
+                         [:.dark-orange {:color burnt-orange}]
+                         [:section {:padding       (em 1)
+                                    :border-radius (em 0.5)}
+                          [:&:first-child {:flex 2}
+                           (mobile-view [:& {:flex-basis "max-content"}])]
+                          [(& (nth-child "2")) {:flex 5}]
+                          [:&.intro {:background "#F8F4FF"}]
+                          [:&.body {:background floral-white}]]]
+                        [:.box-shadow
+                         {:box-shadow [[0 0 (px 5) onyx]]}
+                         (at-media {:print true}
+                                   [:& {:box-shadow "none"}])]
+                        [:#display-profile {:display       "inline"
+                                            :max-width     (em 2)
+                                            :border-radius (percent 50)}]
+                        [:.text-row {:display         "flex"
+                                     :flex-flow       [["row" "wrap"]]
+                                     :align-items     "center"
+                                     ;:justify-content "space-between"
+                                     :gap             (em 0.5)}]
+                        [:.logo {:display   "inline"
+                                 :max-width (em 1)}]]))]
      [:body
-      [:header.hide-in-print
+      [:header.hide-in-print.box-shadow
        [:section
-        [:h1 "\uD83D\uDDD2 Résumé of Benjamin Tan Kuan Wei \uD83E\uDD17"]
+        [:div
+         [:img#display-profile {:src "images/display_profile.png"}]
+         [:h1 {:style {:display "inline"}}
+          "Benjamin Tan's résumé \uD83E\uDD17"]]
         [:button {:onclick "window.print()"}
-         [:h4 "save me as pdf!"]]]]
-      [:article#resume
-       [:h3 "What's up!"]
-       (apply str (repeatedly 8 lorem-ipsum))]]]))
+         [:p "save me as pdf!"]]]]
+      [:article#resume.box-shadow
+       [:section.intro
+        [:h3 [:b "Benjamin Tan Kuan Wei"]]
+        [:div {:style {:line-height 1.75}}
+         [:a {:href "https://benjamintan.dev"}
+          [:h5 "benjamintan.dev"]]
+
+         [:a.text-row {:href "https://github.com/betakuwe"}
+          [:img.logo {:src "images/github-mark.svg"}]
+          [:h6 "betakuwe"]]
+         [:a.text-row {:href "https://www.linkedin.com/in/benjamin-tan-2b06a0127/"}
+          [:img.logo {:src "images/linkedin.svg"}]
+          [:h6 "benjamin-tan-2b06a0127"]]
+
+         [:a {:href "mailto:working.celery@gmail.com"}
+          [:h6 "working.celery@gmail.com"]]
+         [:h6 "+65 9271 6970"]
+
+         [:h6 "Ang Mo Kio, Singapore"]
+         [:h6 "Singapore Citizen"]]
+
+
+        (lorem-ipsum)]
+       [:section.body
+        [:h3.dark-orange "Hi there."]
+        (apply str (repeatedly 2 lorem-ipsum))]]]]))
 
 (def pages {"/index.html" (html5 {:lang "en"} resume)})
 
 (defn get-pages [] pages)
 
 (defn get-assets []
-  (assets/load-assets "public" ["/css/reset.css" #"/images/.*\.png$"]))
+  (assets/load-assets "public" ["/css/reset.css"
+                                #"/images/.*\.png$"
+                                #"/images/.*\.svg$"]))
 
 (def app
   (-> (stasis/serve-pages get-pages)
