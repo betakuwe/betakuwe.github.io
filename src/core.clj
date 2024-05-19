@@ -9,7 +9,7 @@
             [garden.units :refer [cm vw in px mm em percent]]
             [garden.color :refer [rgb rgba]]
             [garden.stylesheet :refer [at-media]]
-            [garden.selectors :refer [nth-child] :as sel]
+            [garden.selectors :refer [nth-child &] :as sel]
             [optimus.prime :as optimus]
             [optimus.assets :as assets]
             [optimus.optimizations :as optimizations]
@@ -24,6 +24,7 @@
 ;; https://coolors.co/393d3f-fdfdff-c6c5b9-595934
 (def onyx "#393D3F")
 (def floral-white "#FFFAF0")
+(def magnolia "#F8F4FF")
 (def lavender "#D8D1E3")
 (def advent-purple "#4B365F")
 (def silver "#BDACA4")
@@ -98,7 +99,7 @@
                          {:color         onyx
                           :background    "white"
                           :max-width     (mm 210)
-                          :height        (mm 280)
+                          :min-height    (mm 280)
                           :margin        [[(em 2) :auto]]
                           :padding       (em 1)
                           :border-radius (em 0.5)
@@ -109,16 +110,19 @@
                          (at-media {:print true}
                                    [:& {:border-radius 0
                                         :margin        0}])
-                         [:h1 :h2 :h3 :h4 :h5 :h6
-                          {:color advent-purple}]
                          [:.dark-orange {:color burnt-orange}]
-                         [:section {:padding       (em 1)
-                                    :border-radius (em 0.5)}
+                         [:&>section {:padding       (em 1)
+                                      :border-radius (em 0.5)}
                           [:&:first-child {:flex 2}
                            (mobile-view [:& {:flex-basis "max-content"}])]
-                          [(sel/& (nth-child "2")) {:flex 5}]
-                          [:&.intro {:background "#F8F4FF"}]
-                          [:&.body {:background floral-white}]]]
+                          [(& (nth-child "2")) {:flex 5}]
+                          [:&.intro {:background magnolia
+                                     :display    "flex"
+                                     :flex-flow  [["column" "wrap"]]
+                                     :gap        (em 1)}
+                           (conj headers {:color advent-purple})]
+                          [:&.body {:background floral-white}
+                           (conj headers {:color burnt-orange})]]]
                         [:.box-shadow
                          {:box-shadow [[0 0 (px 5) onyx]]}
                          (at-media {:print true}
@@ -126,11 +130,11 @@
                         [:#display-profile {:display       "inline"
                                             :max-width     (em 2)
                                             :border-radius (percent 50)}]
-                        [:.text-row {:display         "flex"
-                                     :flex-flow       [["row" "wrap"]]
-                                     :align-items     "center"
+                        [:.text-row {:display     "flex"
+                                     :flex-flow   [["row" "wrap"]]
+                                     :align-items "center"
                                      ;:justify-content "space-between"
-                                     :gap             (em 0.5)}]
+                                     :gap         (em 0.5)}]
                         [:.logo {:display   "inline"
                                  :max-width (em 1)}]]))]
      [:body
@@ -145,26 +149,56 @@
       [:article#resume.box-shadow
        [:section.intro
         [:h3 [:b "Benjamin Tan Kuan Wei"]]
-        [:div {:style {:line-height 1.75}}
+        [:section
          [:a {:href "https://benjamintan.dev"}
           [:h5 "benjamintan.dev"]]
-
          [:a.text-row {:href "https://github.com/betakuwe"}
           [:img.logo {:src "images/github-mark.svg"}]
-          [:h6 "betakuwe"]]
+          [:h5 "betakuwe"]]
          [:a.text-row {:href "https://www.linkedin.com/in/benjamin-tan-2b06a0127/"}
           [:img.logo {:src "images/linkedin.svg"}]
-          [:h6 "benjamin-tan-2b06a0127"]]
-
+          [:h5 "benjamin-tan-2b06a0127"]]
          [:a {:href "mailto:working.celery@gmail.com"}
-          [:h6 "working.celery@gmail.com"]]
-         [:h6 "+65 9271 6970"]
-
-         [:h6 "Ang Mo Kio, Singapore"]
-         [:h6 "Singapore Citizen"]]
-
-
-        (lorem-ipsum)]
+          [:h5 "working.celery@gmail.com"]]
+         [:h5 "+65 9271 6970"]
+         [:h5 "Ang Mo Kio, Singapore"]
+         [:h5 "Singapore Citizen"]]
+        [:h3 [:b "Programming languages"]]
+        [:section
+         [:h5 [:b "Used extensively"]]
+         [:p "Dart, Clojure, Python, Java, C#, JavaScript, YAML, HTML, CSS"]]
+        [:section
+         [:h5 [:b "Learnt but inexperienced"]]
+         [:p "SQL, Golang, TypeScript, C/C++, Elixir, Prolog"]]
+        [:h3 [:b "Languages"]]
+        [:section
+         [:p "English, Mandarin Chinese, French"]]
+        [:h3 [:b "Education"]]
+        [:section
+         [:p [:b "National University of Singapore"]]
+         [:p "Bachelor of Computing"]
+         [:p "June 2023"]
+         [:p "Honours (Highest Distinction)"]
+         [:p "Grade: 4.52/5.00"]]
+        [:h3 [:b "Work"]]
+        [:section
+         [:p [:b "BoostDraft Inc."]]
+         [:p "Software Engineer (.NET)"]
+         [:p "Remote"]
+         [:p "Dec 2023 - Mar 2024"]]
+        [:section
+         [:p [:b "OSIM Pte. Ltd."]]
+         [:p "Mobile Engineer (Flutter)"]
+         [:p "Singapore"]
+         [:p "Jul 2023 - Jan 2024"]]
+        [:section
+         [:p [:b "NUS Industrial Systems Engineering and Management"]]
+         [:p "IT Developer (Intern)"]
+         [:p "Singapore"]
+         [:p "May 2020 - Jul 2020"]]
+        [:h3 [:b "Frameworks and Tools used"]]
+        [:section
+         [:p "Flutter, Android Studio, .NET, Unity Engine, Jira, Confluence, draw.io, GitHub Workflows"]]]
        [:section.body
         [:h3.dark-orange "Hi there."]
         (apply str (repeatedly 2 lorem-ipsum))]]]]))
