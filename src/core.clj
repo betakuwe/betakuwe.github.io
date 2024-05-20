@@ -6,7 +6,7 @@
             [hiccup2.core :refer [html]]
             [hiccup.util :refer [raw-string]]
             [garden.core :refer [css]]
-            [garden.units :refer [cm vw in px mm em percent]]
+            [garden.units :refer [cm vw in px mm em percent ch]]
             [garden.color :refer [rgb rgba]]
             [garden.stylesheet :refer [at-media]]
             [garden.selectors :refer [nth-child &] :as sel]
@@ -29,9 +29,9 @@
 (def advent-purple "#4B365F")
 (def silver "#BDACA4")
 (def burnt-orange "#CB6015")
-(def chamoisee "#9C8457")
-(def dutch-white "#E8D5B0")
-(def drab-dark-brown "#524421")
+
+(def cabacus-school [:a {:href "https://cabacus.school"} "cabacus.school"])
+(def benjamintan-dev [:a {:href "https://benjamintan.dev"} "benjamintan.dev"])
 
 (def resume
   (html
@@ -49,7 +49,7 @@
      [:meta {:charset "utf-8"}]
      [:meta {:name    "viewport"
              :content "width=device-width, initial-scale=1.0"}]
-     [:base {:href "/"}]
+     [:base {:href "/" :target "_blank"}]
      [:link {:rel "stylesheet" :href "css/reset.css"}]
      [:style
       (raw-string (css [(at-media {:print true}
@@ -68,11 +68,19 @@
                                         :print-color-adjust         "exact"}])
                          (mobile-view [:& {:zoom 1}])]
                         [:h1 :h2 :h3 :h4 :h5 :h6
-                         {:font-family ["Fira Code" :monospace]}]
+                         {:font-family ["Fira Code" "monospace"]}]
                         [:h1 {:font-size (em 1.2)}]
-                        [:body :h1 :h2 :h3 :h4 :h5 :h6 :p
+                        [:body :h1 :h2 :h3 :h4 :h5 :h6 :p :ul
                          {:margin      0
                           :font-weight 400}]
+                        [:ul {:padding-left (em 1)}]
+                        [:a:link :a:visited :a:focus :a:active :a:hover
+                         {:color "none"
+                          :text-decoration-color "none"}]
+                        [:footer {:background onyx
+                                  :color "white"
+                                  :text-align "center"
+                                  :padding (em 1)}]
                         [:header
                          {:position   :sticky
                           :top        0
@@ -109,7 +117,11 @@
                           :font-size     "smaller"}
                          (at-media {:print true}
                                    [:& {:border-radius 0
-                                        :margin        0}])
+                                        :margin        0
+                                        :position "fixed"
+                                        :top (percent 50)
+                                        :bottom (percent 50)
+                                        :transform "translate(0, -50%)"}])
                          [:.dark-orange {:color burnt-orange}]
                          [:&>section {:padding       (em 1)
                                       :border-radius (em 0.5)}
@@ -121,8 +133,13 @@
                                      :flex-flow  [["column" "wrap"]]
                                      :gap        (em 1)}
                            (conj headers {:color advent-purple})]
-                          [:&.body {:background floral-white}
-                           (conj headers {:color burnt-orange})]]]
+                          [:&.body {:background floral-white
+                                    :display    "flex"
+                                    :flex-flow  [["column" "wrap"]]
+                                    :gap        (em 1)}
+                           (conj headers {:color burnt-orange})
+                           [:.monospace {:font-family ["Fira Code" "monospace"]
+                                         :color burnt-orange}]]]]
                         [:.box-shadow
                          {:box-shadow [[0 0 (px 5) onyx]]}
                          (at-media {:print true}
@@ -145,13 +162,12 @@
          [:h1 {:style {:display "inline"}}
           "Benjamin Tan's résumé \uD83E\uDD17"]]
         [:button {:onclick "window.print()"}
-         [:p "save me as pdf!"]]]]
+         [:h5 "\uD83D\uDDA8\uFE0F or \uD83D\uDCBE me as pdf!"]]]]
       [:article#resume.box-shadow
        [:section.intro
         [:h3 [:b "Benjamin Tan Kuan Wei"]]
         [:section
-         [:a {:href "https://benjamintan.dev"}
-          [:h5 "benjamintan.dev"]]
+         [:h5 benjamintan-dev]
          [:a.text-row {:href "https://github.com/betakuwe"}
           [:img.logo {:src "images/github-mark.svg"}]
           [:h5 "betakuwe"]]
@@ -163,6 +179,7 @@
          [:h5 "+65 9271 6970"]
          [:h5 "Ang Mo Kio, Singapore"]
          [:h5 "Singapore Citizen"]]
+
         [:h3 [:b "Programming languages"]]
         [:section
          [:h5 [:b "Used extensively"]]
@@ -170,38 +187,104 @@
         [:section
          [:h5 [:b "Learnt but inexperienced"]]
          [:p "SQL, Golang, TypeScript, C/C++, Elixir, Prolog"]]
-        [:h3 [:b "Languages"]]
+
+        [:h3 [:b "Frameworks/Tools used"]]
         [:section
-         [:p "English, Mandarin Chinese, French"]]
+         [:p "Flutter, Android Studio, .NET, Unity Engine, Jira, Confluence, draw.io, GitHub Workflows"]]
+
         [:h3 [:b "Education"]]
         [:section
-         [:p [:b "National University of Singapore"]]
+         [:h5 [:b "National University of Singapore"]]
          [:p "Bachelor of Computing"]
          [:p "June 2023"]
          [:p "Honours (Highest Distinction)"]
          [:p "Grade: 4.52/5.00"]]
+
         [:h3 [:b "Work"]]
         [:section
-         [:p [:b "BoostDraft Inc."]]
-         [:p "Software Engineer (.NET)"]
+         [:h5 [:b "BoostDraft Inc."]]
+         [:p "Software Engineer (Part-time)"]
          [:p "Remote"]
-         [:p "Dec 2023 - Mar 2024"]]
+         [:p "Jan 2024 - Mar 2024"]]
         [:section
-         [:p [:b "OSIM Pte. Ltd."]]
-         [:p "Mobile Engineer (Flutter)"]
+         [:h5 [:b "OSIM Pte. Ltd."]]
+         [:p "Mobile Engineer (Mid level)"]
          [:p "Singapore"]
          [:p "Jul 2023 - Jan 2024"]]
         [:section
-         [:p [:b "NUS Industrial Systems Engineering and Management"]]
+         [:h5 [:b "NUS Industrial Systems Engineering and Management"]]
          [:p "IT Developer (Intern)"]
          [:p "Singapore"]
          [:p "May 2020 - Jul 2020"]]
-        [:h3 [:b "Frameworks and Tools used"]]
+
+        [:h3 [:b "Languages"]]
         [:section
-         [:p "Flutter, Android Studio, .NET, Unity Engine, Jira, Confluence, draw.io, GitHub Workflows"]]]
+         [:p "English, Mandarin Chinese, French"]]]
+
+       ;; Body
        [:section.body
-        [:h3.dark-orange "Hi there."]
-        (apply str (repeatedly 2 lorem-ipsum))]]]]))
+        [:h3 [:b "About me"]]
+        [:section
+         [:p "Software engineer available for hire.
+         I have extensive experience in Flutter and mobile development, also in using git, GitHub, YML workflows in GitHub actions, Python and shell scripting for software development on unix/linux systems, and Jira and Confluence for project management.
+         I spend my free time working on my projects and learning about new frameworks and programming languages.
+         My projects include " cabacus-school " and " benjamintan-dev ", a website made in Clojure."]]
+
+        [:h3 [:b "Creator of " cabacus-school]]
+        [:section
+         [:ul
+          [:li "Educational app made with Flutter available on Android, iOS (soon), and web."]
+          [:li "I make " [:i "everything"] ". Including the image and audio assets and the website."]
+          [:li "Uses " [:a {:href "https://pub.dev/packages/state_beacon"} "state_beacon"] " for state management.
+          Migrated from " [:a {:href "https://pub.dev/packages/provider"} "provider"] " and " [:a {:href "https://pub.dev/packages/mobx"} "MobX"] "."]]]
+
+        [:h3 [:b ".NET Software Engineer at BoostDraft Inc."]]
+        [:section
+         [:ul
+          [:li "Develop .NET apps in C# for Microsoft Word using " [:a {:href "https://learn.microsoft.com/en-us/visualstudio/vsto/create-vsto-add-ins-for-office-by-using-visual-studio"} "VSTO API"] "."]
+          [:li "Implement frontend features using " [:a {:href "https://learn.microsoft.com/en-us/dotnet/desktop/wpf"} "Windows Presentation Framework"] "."]
+          [:li "Use machine learning for NLP parsing in Microsoft Word."]]]
+
+        [:h3 [:b "Flutter Mobile Engineer at OSIM Pte. Ltd."]]
+        [:section
+         [:ul
+          [:li "Develop Flutter apps to connect to and operate bluetooth devices."]
+          [:li "Implement CI/CD with GitHub workflows and Python scripts to integrate with backend services."]
+          [:li "Develop and publish the " [:a {:href "https://apps.apple.com/sg/app/osim-well-being/id1588337384"} "OSIM Well-Being App"] "."]]]
+
+        [:h3 [:b "Academics"]]
+
+        [:section
+         [:h5 [:b "IT Developer Internship at NUS Industrial Systems Engineering and Management"]]
+         [:p "Research and prototype a general solver for a class of optimization problems in Constraint Programming to create an automated validation tool for algorithm outputs."]]
+
+        [:section
+         [:h5 [:b "HCI Research Project at NUS-HCI Lab"]]
+         [:p "Design UI features using " [:a {:href "https://unity.com/"} "Unity Engine"] " in C# to create prototypes for Mixed Reality using the " [:a {:href "https://www.xreal.com/"} "XREAL AR glasses"] " and " [:a {:href "https://www.microsoft.com/en-us/hololens"} "Microsoft Hololens"] "."]]
+
+        [:section
+         [:h5 [:b "Uncertainty Modeling in AI Project at NUS"]]
+         [:p "Design Bayesian and Markov Networks in Python to find patterns in national policies in pandemic management between various countries during the COVID-19 pandemic."]]
+
+        [:section
+         [:h5 [:b "Neural Networks and Deep Learning Project at NUS"]]
+         [:p "Develop pipelines with convolutional and recursive neural networks in " [:a {:href "https://pytorch.org/"} "PyTorch"] " to automate hyperparameter tuning in an NLP task."]]
+
+        [:h3 [:b "Hackathons"]]
+
+        [:section
+         [:h5 [:b "KIRO 2019 Concours Inter-écoles de Recherche Opérationnelle at Télécom Paris"]]
+         [:p "Implement Simulated Annealing and other machine learning techniques to solve a non-trivial graph theory problem."]]
+
+        [:section
+         [:h5 [:b "Hack&Roll 2019 at NUS"]]
+         [:p "Develop a multiplayer game on web browser controlled using accelerometers in smartphones using " [:a {:href "https://webrtc.org/"} "WebRTC"] "."]]]]
+
+      [:footer.hide-in-print.box-shadow
+       [:small
+        [:h5 "Made by me"]
+        [:h5 "I made this website"]
+        [:h5 "All rights reserved by me"]]]]]))
 
 (def pages {"/index.html" (html5 {:lang "en"} resume)})
 
