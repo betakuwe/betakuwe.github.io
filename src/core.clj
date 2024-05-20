@@ -100,8 +100,8 @@
                           :font-weight 400}]
                         [:ul {:padding-left (em 1)}]
                         [:a:link :a:visited :a:focus :a:active :a:hover
-                         {:color "none"
-                          :text-decoration-color "none"}]
+                         {:color "unset"
+                          :text-decoration-color "unset"}]
                         [:footer {:background onyx
                                   :color "white"
                                   :text-align "center"
