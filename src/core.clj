@@ -199,8 +199,8 @@
          [:a.text-row {:href "https://www.linkedin.com/in/benjamin-tan-2b06a0127/"}
           [:img.logo {:src "images/linkedin.svg"}]
           [:h5 "benjamin-tan-2b06a0127"]]
-         [:a {:href "mailto:working.celery@gmail.com"}
-          [:h5 "working.celery@gmail.com"]]
+         [:a {:href "mailto:betakuwe@gmail.com"}
+          [:h5 "betakuwe@gmail.com"]]
          [:h5 "+65 9271 6970"]
          [:h5 "Ang Mo Kio, Singapore"]
          [:h5 "Singapore Citizen"]]
