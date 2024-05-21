@@ -221,7 +221,7 @@
 
         [:h2 "Education"]
         [:section
-         [:h5 "National University of Singapore (NUS)"]
+         [:h3 "National University of Singapore (NUS)"]
          [:p "Bachelor of Computing"]
          [:p "June 2023"]
          [:p "Honours (Highest Distinction)"]
