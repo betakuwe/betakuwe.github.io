@@ -28,7 +28,7 @@
 (def lavender "#D8D1E3")
 (def advent-purple "#4B365F")
 (def silver "#BDACA4")
-(def burnt-orange "#CB6015")
+(def russet "#85431E")
 
 (def cabacus-school [:a {:href "https://cabacus.school"} "cabacus.school"])
 (def benjamintan-dev [:a {:href "https://benjamintan.dev"} "benjamintan.dev"])
@@ -92,12 +92,13 @@
                                         :-webkit-print-color-adjust "exact"
                                         :print-color-adjust         "exact"}])
                          (mobile-view [:& {:zoom 1}])]
-                        [:h1 :h2 :h3 :h4 :h5 :h6
+                        [:h2 {:font-size (em 1.17)}]
+                        [:h3 :.mono {:font-size (em 0.83)}]
+                        [:.mono :h1 :h2 :h3 :h4 :h5 :h6
                          {:font-family ["Fira Code" "monospace"]}]
                         [:h1 {:font-size (em 1.2)}]
                         [:body :h1 :h2 :h3 :h4 :h5 :h6 :p :ul
-                         {:margin      0
-                          :font-weight 400}]
+                         {:margin      0}]
                         [:ul {:padding-left (em 1)}]
                         [:a:link :a:visited :a:focus :a:active :a:hover
                          {:color "unset"
@@ -147,7 +148,7 @@
                                         :top (percent 50)
                                         :bottom (percent 50)
                                         :transform "translate(0, -50%)"}])
-                         [:.dark-orange {:color burnt-orange}]
+                         [:.dark-orange {:color russet}]
                          [:&>section {:padding       (em 1)
                                       :border-radius (em 0.5)}
                           [:&:first-child {:flex 2}
@@ -162,9 +163,7 @@
                                     :display    "flex"
                                     :flex-flow  [["column" "wrap"]]
                                     :gap        (em 1)}
-                           (conj headers {:color burnt-orange})
-                           [:.monospace {:font-family ["Fira Code" "monospace"]
-                                         :color burnt-orange}]]]]
+                           (conj headers {:color russet})]]]
                         [:.box-shadow
                          {:box-shadow [[0 0 (px 5) onyx]]}
                          (at-media {:print true}
@@ -184,78 +183,78 @@
        [:section
         [:div
          [:img#display-profile {:src "images/display_profile.jpg"}]
-         [:h1 {:style {:display "inline"}}
+         [:h1 {:style {:display "inline" :font-weight 400}}
           "Benjamin Tan's résumé \uD83E\uDD17"]]
         [:button {:onclick "window.print()"}
-         [:h5 "\uD83D\uDDA8\uFE0F or \uD83D\uDCBE me as pdf!"]]]]
+         [:p.mono "\uD83D\uDDA8\uFE0F or \uD83D\uDCBE me as pdf!"]]]]
       [:article#resume.box-shadow
        [:section.intro
-        [:h3 [:b "Benjamin Tan Kuan Wei"]]
+        [:h2 "Benjamin Tan Kuan Wei"]
         [:section
-         [:h5 benjamintan-dev]
+         [:p.mono benjamintan-dev]
          [:a.text-row {:href "https://github.com/betakuwe"}
           [:img.logo {:src "images/github-mark.svg"}]
-          [:h5 "betakuwe"]]
+          [:p.mono "betakuwe"]]
          [:a.text-row {:href "https://www.linkedin.com/in/benjamin-tan-2b06a0127/"}
           [:img.logo {:src "images/linkedin.svg"}]
-          [:h5 "benjamin-tan-2b06a0127"]]
+          [:p.mono "benjamin-tan-2b06a0127"]]
          [:a {:href "mailto:betakuwe@gmail.com"}
-          [:h5 "betakuwe@gmail.com"]]
-         [:h5 "+65 9271 6970"]
-         [:h5 "Ang Mo Kio, Singapore"]
-         [:h5 "Singapore Citizen"]]
+          [:p.mono "betakuwe@gmail.com"]]
+         [:p.mono "+65 9271 6970"]
+         [:p.mono "Ang Mo Kio, Singapore"]
+         [:p.mono "Singapore Citizen"]]
 
-        [:h3 [:b "Programming languages"]]
+        [:h2 "Programming languages"]
         [:section
-         [:h5 [:b "Used extensively"]]
+         [:h3 "Used extensively"]
          [:p "Dart, Clojure, Python, Java, C#, JavaScript, YAML, HTML, CSS"]]
         [:section
-         [:h5 [:b "Learnt but inexperienced"]]
+         [:h3 "Learnt but inexperienced"]
          [:p "SQL, Golang, TypeScript, C/C++, Elixir, Prolog"]]
 
-        [:h3 [:b "Frameworks/Tools used"]]
+        [:h2 "Frameworks/Tools used"]
         [:section
          [:p "Flutter, Android Studio, .NET, Unity Engine, Jira, Confluence, draw.io, GitHub Workflows"]]
 
-        [:h3 [:b "Education"]]
+        [:h2 "Education"]
         [:section
-         [:h5 [:b "National University of Singapore (NUS)"]]
+         [:h5 "National University of Singapore (NUS)"]
          [:p "Bachelor of Computing"]
          [:p "June 2023"]
          [:p "Honours (Highest Distinction)"]
          [:p "Grade: 4.52/5.00"]]
 
-        [:h3 [:b "Work"]]
+        [:h2 "Work"]
         [:section
-         [:h5 [:b "BoostDraft Inc."]]
+         [:h3 "BoostDraft Inc."]
          [:p "Software Engineer (Part-time)"]
          [:p "Remote"]
          [:p "Jan 2024 - Mar 2024"]]
         [:section
-         [:h5 [:b "OSIM Pte. Ltd."]]
+         [:h3 "OSIM Pte. Ltd."]
          [:p "Mobile Engineer (Mid level)"]
          [:p "Singapore"]
          [:p "Jul 2023 - Jan 2024"]]
         [:section
-         [:h5 [:b "NUS Industrial Systems Engineering and Management"]]
+         [:h3 "NUS Industrial Systems Engineering and Management"]
          [:p "IT Developer (Intern)"]
          [:p "Singapore"]
          [:p "May 2020 - Jul 2020"]]
 
-        [:h3 [:b "Languages"]]
+        [:h2 "Languages"]
         [:section
          [:p "English, Mandarin Chinese, French"]]]
 
        ;; Body
        [:section.body
-        [:h3 [:b "About me"]]
+        [:h2 "About me"]
         [:section
          [:p "Software engineer available for hire.
          I have extensive experience in Flutter and mobile development, also in using git, GitHub, YML workflows in GitHub actions, Python and shell scripting for software development on unix/linux systems, and Jira and Confluence for project management.
          I spend my free time working on my projects and learning about new frameworks and programming languages.
          My projects include " cabacus-school " and " benjamintan-dev ", a website made with Clojure."]]
 
-        [:h3 [:b "Creator of " cabacus-school]]
+        [:h2 "Creator of " cabacus-school]
         [:section
          [:ul
           [:li "Educational app made with Flutter available on Android, iOS (soon), and web."]
@@ -263,53 +262,53 @@
           [:li "Uses " [:a {:href "https://pub.dev/packages/state_beacon"} "state_beacon"] " for state management.
           Migrated from " [:a {:href "https://pub.dev/packages/provider"} "provider"] " and " [:a {:href "https://pub.dev/packages/mobx"} "MobX"] "."]]]
 
-        [:h3 [:b ".NET Software Engineer at BoostDraft Inc."]]
+        [:h2 ".NET Software Engineer at BoostDraft Inc."]
         [:section
          [:ul
           [:li "Develop .NET apps in C# for Microsoft Word using " [:a {:href "https://learn.microsoft.com/en-us/visualstudio/vsto/create-vsto-add-ins-for-office-by-using-visual-studio"} "VSTO API"] "."]
           [:li "Implement frontend features using " [:a {:href "https://learn.microsoft.com/en-us/dotnet/desktop/wpf"} "Windows Presentation Framework"] "."]
           [:li "Use machine learning for NLP parsing in Microsoft Word."]]]
 
-        [:h3 [:b "Flutter Mobile Engineer at OSIM Pte. Ltd."]]
+        [:h2 "Flutter Mobile Engineer at OSIM Pte. Ltd."]
         [:section
          [:ul
           [:li "Develop Flutter apps to connect to and operate bluetooth devices."]
           [:li "Implement CI/CD with GitHub workflows and Python scripts to integrate with backend services."]
           [:li "Develop and publish the " [:a {:href "https://apps.apple.com/sg/app/osim-well-being/id1588337384"} "OSIM Well-Being App"] "."]]]
 
-        [:h3 [:b "Academics"]]
+        [:h2 "Academics"]
 
         [:section
-         [:h5 [:b "IT Developer Internship at NUS Industrial Systems Engineering and Management"]]
+         [:h3 "IT Developer Internship at NUS Industrial Systems Engineering and Management"]
          [:p "Research and prototype a general solver for a class of optimization problems in Constraint Programming to create an automated validation tool for algorithm outputs."]]
 
         [:section
-         [:h5 [:b "HCI Research Project at NUS-HCI Lab"]]
+         [:h3 "HCI Research Project at NUS-HCI Lab"]
          [:p "Design UI features using " [:a {:href "https://unity.com/"} "Unity Engine"] " in C# to create prototypes for Mixed Reality using the " [:a {:href "https://www.xreal.com/"} "XREAL AR glasses"] " and " [:a {:href "https://www.microsoft.com/en-us/hololens"} "Microsoft Hololens"] "."]]
 
         [:section
-         [:h5 [:b "Uncertainty Modeling in AI Project at NUS"]]
+         [:h3 "Uncertainty Modeling in AI Project at NUS"]
          [:p "Design Bayesian and Markov Networks in Python to find patterns in national policies in pandemic management between various countries during the COVID-19 pandemic."]]
 
         [:section
-         [:h5 [:b "Neural Networks and Deep Learning Project at NUS"]]
+         [:h3 "Neural Networks and Deep Learning Project at NUS"]
          [:p "Develop pipelines with convolutional and recursive neural networks in " [:a {:href "https://pytorch.org/"} "PyTorch"] " to automate hyperparameter tuning in an NLP task."]]
 
-        [:h3 [:b "Hackathons"]]
+        [:h2 "Hackathons"]
 
         [:section
-         [:h5 [:b "KIRO 2019 Concours Inter-écoles de Recherche Opérationnelle at Télécom Paris"]]
+         [:h3 "KIRO 2019 Concours Inter-écoles de Recherche Opérationnelle at Télécom Paris"]
          [:p "Implement Simulated Annealing and other machine learning techniques to solve a non-trivial graph theory problem."]]
 
         [:section
-         [:h5 [:b "Hack&Roll 2019 at NUS"]]
+         [:h3 "Hack&Roll 2019 at NUS"]
          [:p "Develop a multiplayer game on web browser controlled using accelerometers in smartphones using " [:a {:href "https://webrtc.org/"} "WebRTC"] "."]]]]
 
       [:footer.hide-in-print.box-shadow
        [:small
-        [:h5 "Made by me"]
-        [:h5 "I made this website"]
-        [:h5 "All rights reserved by me"]]]]]))
+        [:p.mono "Made by me"]
+        [:p.mono "I made this website"]
+        [:p.mono "All rights reserved by me"]]]]]))
 
 (def pages {"/index.html" (html5 {:lang "en"} resume)})
 
