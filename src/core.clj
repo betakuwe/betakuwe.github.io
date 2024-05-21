@@ -182,7 +182,8 @@
       [:header.hide-in-print.box-shadow
        [:section
         [:div
-         [:img#display-profile {:src "images/display_profile.jpg"}]
+         [:img#display-profile {:src "images/display_profile.jpg"
+                                :alt "Benjamin Tan's display profile"}]
          [:h1 {:style {:display "inline" :font-weight 400}}
           "Benjamin Tan's résumé \uD83E\uDD17"]]
         [:button {:onclick "window.print()"}
@@ -193,10 +194,12 @@
         [:section
          [:p.mono benjamintan-dev]
          [:a.text-row {:href "https://github.com/betakuwe"}
-          [:img.logo {:src "images/github-mark.svg"}]
+          [:img.logo {:src "images/github-mark.svg"
+                      :alt "GitHub logo"}]
           [:p.mono "betakuwe"]]
          [:a.text-row {:href "https://www.linkedin.com/in/benjamin-tan-2b06a0127/"}
-          [:img.logo {:src "images/linkedin.svg"}]
+          [:img.logo {:src "images/linkedin.svg"
+                      :alt "LinkedIn Logo"}]
           [:p.mono "benjamin-tan-2b06a0127"]]
          [:a {:href "mailto:betakuwe@gmail.com"}
           [:p.mono "betakuwe@gmail.com"]]
