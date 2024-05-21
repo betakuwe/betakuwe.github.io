@@ -253,7 +253,7 @@
          [:p "Software engineer available for hire.
          I have extensive experience in Flutter and mobile development, also in using git, GitHub, YML workflows in GitHub actions, Python and shell scripting for software development on unix/linux systems, and Jira and Confluence for project management.
          I spend my free time working on my projects and learning about new frameworks and programming languages.
-         My projects include " cabacus-school " and " benjamintan-dev ", a website made in Clojure."]]
+         My projects include " cabacus-school " and " benjamintan-dev ", a website made with Clojure."]]
 
         [:h3 [:b "Creator of " cabacus-school]]
         [:section
