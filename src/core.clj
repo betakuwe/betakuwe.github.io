@@ -126,8 +126,8 @@
                                  :align-items "center"}]
                           [:button {:background    lavender
                                     :color         advent-purple
-                                    :border-radius (em 0.5)
-                                    :padding       [[0 (em 1)]]}]]]
+                                    :border-radius (em 1)
+                                    :padding       [[(em 0.5) (em 1)]]}]]]
                         [:#resume
                          {:color         onyx
                           :background    "white"
@@ -219,7 +219,7 @@
 
         [:h3 [:b "Education"]]
         [:section
-         [:h5 [:b "National University of Singapore"]]
+         [:h5 [:b "National University of Singapore (NUS)"]]
          [:p "Bachelor of Computing"]
          [:p "June 2023"]
          [:p "Honours (Highest Distinction)"]
