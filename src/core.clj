@@ -38,23 +38,23 @@
     [:head
      ;; favicon
      [:link
-      {:rel "apple-touch-icon",
+      {:rel   "apple-touch-icon",
        :sizes "180x180",
-       :href "/favicon/apple-touch-icon.png"}]
+       :href  "/favicon/apple-touch-icon.png"}]
      [:link
-      {:rel "icon",
-       :type "image/png",
+      {:rel   "icon",
+       :type  "image/png",
        :sizes "32x32",
-       :href "/favicon/favicon-32x32.png"}]
+       :href  "/favicon/favicon-32x32.png"}]
      [:link
-      {:rel "icon",
-       :type "image/png",
+      {:rel   "icon",
+       :type  "image/png",
        :sizes "16x16",
-       :href "/favicon/favicon-16x16.png"}]
+       :href  "/favicon/favicon-16x16.png"}]
      [:link {:rel "manifest", :href "/favicon/site.webmanifest"}]
      [:link
-      {:rel "mask-icon",
-       :href "/favicon/safari-pinned-tab.svg",
+      {:rel   "mask-icon",
+       :href  "/favicon/safari-pinned-tab.svg",
        :color "#5bbad5"}]
      [:link {:rel "shortcut icon", :href "/favicon/favicon.ico"}]
      [:meta {:name "msapplication-TileColor", :content "#da532c"}]
@@ -98,15 +98,15 @@
                          {:font-family ["Fira Code" "monospace"]}]
                         [:h1 {:font-size (em 1.2)}]
                         [:body :h1 :h2 :h3 :h4 :h5 :h6 :p :ul
-                         {:margin      0}]
+                         {:margin 0}]
                         [:ul {:padding-left (em 1)}]
                         [:a:link :a:visited :a:focus :a:active :a:hover
-                         {:color "unset"
+                         {:color                 "unset"
                           :text-decoration-color "unset"}]
                         [:footer {:background onyx
-                                  :color "white"
+                                  :color      "white"
                                   :text-align "center"
-                                  :padding (em 1)}]
+                                  :padding    (em 1)}]
                         [:header
                          {:position   :sticky
                           :top        0
@@ -144,10 +144,10 @@
                          (at-media {:print true}
                                    [:& {:border-radius 0
                                         :margin        0
-                                        :position "fixed"
-                                        :top (percent 50)
-                                        :bottom (percent 50)
-                                        :transform "translate(0, -50%)"}])
+                                        :position      "fixed"
+                                        :top           (percent 50)
+                                        :bottom        (percent 50)
+                                        :transform     "translate(0, -50%)"}])
                          [:.dark-orange {:color russet}]
                          [:&>section {:padding       (em 1)
                                       :border-radius (em 0.5)}
@@ -254,7 +254,7 @@
         [:section
          [:p "Software engineer available for hire.
          I have extensive experience in Flutter and mobile development, also in using git, GitHub, YML workflows in GitHub actions, Python and shell scripting for software development on unix/linux systems, and Jira and Confluence for project management.
-         I spend my free time working on my projects and learning about new frameworks and programming languages.
+         I spend my free time learning about new frameworks and programming languages, and working on my projects.
          My projects include " cabacus-school " and " benjamintan-dev ", a website made with Clojure."]]
 
         [:h2 "Creator of " cabacus-school]
@@ -275,7 +275,7 @@
         [:h2 "Flutter Mobile Engineer at OSIM Pte. Ltd."]
         [:section
          [:ul
-          [:li "Develop Flutter apps to connect to and operate bluetooth devices."]
+          [:li "Develop Flutter apps to connect to and operate bluetooth devices seamlessly."]
           [:li "Implement CI/CD with GitHub workflows and Python scripts to integrate with backend services."]
           [:li "Develop and publish the " [:a {:href "https://apps.apple.com/sg/app/osim-well-being/id1588337384"} "OSIM Well-Being App"] "."]]]
 
