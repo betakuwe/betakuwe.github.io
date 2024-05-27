@@ -210,7 +210,7 @@
         [:h2 "Programming languages"]
         [:section
          [:h3 "Used extensively"]
-         [:p "Dart, Clojure, Python, Java, C#, JavaScript, YAML, HTML, CSS"]]
+         [:p "Dart, Python, Java, C#, Clojure, JavaScript, YAML, HTML, CSS"]]
         [:section
          [:h3 "Learnt but inexperienced"]
          [:p "SQL, Golang, TypeScript, C/C++, Elixir, Prolog"]]
@@ -244,9 +244,11 @@
          [:p "Singapore"]
          [:p "May 2020 - Jul 2020"]]
 
-        [:h2 "Languages"]
+        [:h2 "Languages and Skills"]
         [:section
-         [:p "English, Mandarin Chinese, French"]]]
+         [:p "English, Mandarin Chinese, French"]]
+        [:section
+         [:p "I can do one-leg squats, AKA pistol squats."]]]
 
        ;; Body
        [:section.body
@@ -260,7 +262,7 @@
         [:h2 "Creator of " cabacus-school]
         [:section
          [:ul
-          [:li "Educational app made with Flutter available on Android, iOS (soon), and web."]
+          [:li "Educational app made with Flutter available on Android, iOS, and web."]
           [:li "I make " [:i "everything"] ". Including the image and audio assets and the website."]
           [:li "Uses " [:a {:href "https://pub.dev/packages/state_beacon"} "state_beacon"] " for state management.
           Migrated from " [:a {:href "https://pub.dev/packages/provider"} "provider"] " and " [:a {:href "https://pub.dev/packages/mobx"} "MobX"] "."]]]
