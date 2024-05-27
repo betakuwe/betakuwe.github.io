@@ -244,7 +244,7 @@
          [:p "Singapore"]
          [:p "May 2020 - Jul 2020"]]
 
-        [:h2 "Languages and Skills"]
+        [:h2 "Languages"]
         [:section
          [:p "English, Mandarin Chinese, French"]]
         [:section
