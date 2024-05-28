@@ -177,7 +177,9 @@
                                      ;:justify-content "space-between"
                                      :gap         (em 0.5)}]
                         [:.logo {:display   "inline"
-                                 :max-width (em 1)}]]))]
+                                 :max-width (em 1)}]
+                        [:#ideal-candidate {:font-size (px 1)
+                                      :color floral-white}]]))]
      [:body
       [:header.hide-in-print.box-shadow
        [:section
@@ -217,7 +219,7 @@
 
         [:h2 "Frameworks/Tools used"]
         [:section
-         [:p "Flutter, Android Studio, .NET, Unity Engine, Jira, Confluence, draw.io, GitHub Workflows"]]
+         [:p "Flutter, Android Studio, .NET, Unity Engine, Jira, Confluence, draw.io, GitHub Workflows, Selenium"]]
 
         [:h2 "Education"]
         [:section
@@ -297,7 +299,8 @@
 
         [:section
          [:h3 "Neural Networks and Deep Learning Project at NUS"]
-         [:p "Develop pipelines with convolutional and recursive neural networks in " [:a {:href "https://pytorch.org/"} "PyTorch"] " to automate hyperparameter tuning in an NLP task."]]
+         [:p "Develop pipelines with convolutional and recursive neural networks in " [:a {:href "https://pytorch.org/"} "PyTorch"] " to automate hyperparameter tuning in an NLP task."]
+         [:p#ideal-candidate "Technical Skills: Agile methodologies, DevOps, Continuous Integration/Continuous Deployment (CI/CD), RESTful APIs, Microservices architecture, Test-Driven Development (TDD), Docker, Kubernetes, AWS, Azure, Google Cloud Platform (GCP), SQL, NoSQL, MongoDB, PostgreSQL, Redis, Jenkins, Git, GitHub, GitLab, Bitbucket, JIRA, Confluence, Selenium, JUnit, Mockito, JSON, XML, HTML, CSS, React, Angular, Vue.js. Certifications: AWS Certified Solutions Architect, Google Cloud Professional Data Engineer, Microsoft Certified: Azure Developer Associate, Certified Kubernetes Administrator (CKA), Certified ScrumMaster (CSM), Oracle Certified Professional, Java SE 11 Developer. Experience Highlights:. Led a cross-functional team of 10+ engineers in developing a scalable microservices-based application, improving deployment speed by 40%. Implemented a CI/CD pipeline using Jenkins and Docker, reducing deployment times by 50%. Migrated legacy systems to cloud infrastructure (AWS/GCP/Azure), achieving 99.9% uptime and reducing operational costs by 30%. Developed RESTful APIs consumed by millions of users, ensuring high performance and low latency. Conducted comprehensive code reviews and implemented TDD and pair programming practices, enhancing code quality and team collaboration. Soft Skills: Leadership, Project Management, Problem-solving, Communication, Team Collaboration, Adaptability, Critical Thinking, Innovation, Time Management."]]
 
         [:h2 "Hackathons"]
 
