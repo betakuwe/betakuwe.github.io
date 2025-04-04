@@ -296,7 +296,8 @@
         [:ul
          [:li "Build mobile apps using Flutter to use mobile devices as IoT devices."]
          [:li "Run machine learning models entire on device offline, i.e. llama.cpp, ONNX, TVM."]
-         [:li "Build FFI interfaces for C++ libraries of llama.cpp, ONNX, TVM from Flutter."]]]
+         [:li "Build FFI interfaces for C++ libraries of llama.cpp, ONNX, TVM from Flutter."]
+         [:li "Some web development in ReactJS."]]]
 
        [:h2 ".NET Software Engineer at BoostDraft Inc."]
        [:section
