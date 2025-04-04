@@ -215,7 +215,7 @@
         [:p "Dart, Python, C/C++, Java, C#, JavaScript, HTML, CSS, SQL"]]
        [:section
         [:h3 "Used for fun / hobby projects"]
-        [:p "Clojure, Gleam, Elixir, Prolog"]]
+        [:p "Clojure, Gleam, Elixir, Scheme (SICP 🥺), Prolog"]]
 
        [:h2 "Frameworks/Tools used"]
        [:section
