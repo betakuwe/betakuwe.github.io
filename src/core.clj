@@ -215,7 +215,7 @@
         [:p "Dart, Python, C/C++, Java, C#, JavaScript, HTML, CSS, SQL"]]
        [:section
         [:h3 "Used for fun / hobby projects"]
-        [:p "Clojure, Elixir, Prolog"]]
+        [:p "Clojure, Gleam, Elixir, Prolog"]]
 
        [:h2 "Frameworks/Tools used"]
        [:section
@@ -261,17 +261,35 @@
       [:section.body
        [:h2 "About me"]
        [:section
-        [:p "Software engineer available for hire.
+        [:p {:style {:text-align "justify"}} "Software engineer available for hire.
          I have extensive experience in Flutter and mobile development, also in using git, CI/CD in GitHub/GitLab, Python and shell scripting for software development on unix/linux systems, and Jira and Confluence for project management.
          I spend my free time learning about new frameworks and programming languages, and working on fun projects.
-         My projects include " cabacus-school " and " benjamintan-dev ", both made with Clojure because it's fun."]]
+         My projects include " cabacus-school " and " benjamintan-dev ", both made with Clojure because it's fun.
+         I have also been mentoring " [:a {:href "https://leejiawei.dev"} "a student"] " pursuing a CS education."]]
 
-       [:h2 "Creator of " cabacus-school]
+       [:h2 "Projects"]
+
        [:section
-        [:ul
-         [:li "Educational math app made with Flutter available on Android, iOS, and web."]
-         [:li "I make " [:i "everything"] ". Including the image and audio assets and the website."]
-         [:li "Uses " [:a {:href "https://github.com/Tensegritics/ClojureDart"} "ClojureDart"] " to transpile to Dart."]]]
+        [:h3 cabacus-school " educational math app on Android, iOS, web"]
+        [:p "Uses Flutter and " [:a {:href "https://github.com/Tensegritics/ClojureDart"} "ClojureDart"] " to transpile to Dart."]]
+
+       [:section
+        [:h3 [:a {:href "https://chromewebstore.google.com/detail/v7-boost/gdhfcahlhainmafamadcfgmbhpbmdifh"} "V7 Boost"] " web extension for the " [:a {:href "https://www.v7labs.com/darwin"} "V7 Darwin"] " data annotation platform"]
+        [:p "Help users improve their productivity. Available on both chrome and firefox. Uses " [:a {:href "https://gleam.run/"} "Gleam"] " for fun."]]
+
+       ; [:h2 "Creator of " cabacus-school]
+       ; [:section
+       ;  [:ul
+       ;   [:li "Educational math app made with Flutter available on Android, iOS, and web."]
+       ;   [:li "I make " [:i "everything"] ". Including the image and audio assets and the website."]
+       ;   [:li "Uses " [:a {:href "https://github.com/Tensegritics/ClojureDart"} "ClojureDart"] " to transpile to Dart."]]]
+
+       ; [:h2 "Creator of " [:a {:href "https://chromewebstore.google.com/detail/v7-boost/gdhfcahlhainmafamadcfgmbhpbmdifh"} "V7 Boost"] " web extension"]
+       ; [:section
+       ;  [:ul
+       ;   [:li "Web extension to help users of the " [:a {:href "https://www.v7labs.com/darwin"} "V7 Darwin"] " data annotation platform improve their productivity."]
+       ;   [:li "Available on both chrome and firefox."]
+       ;   [:li "Uses " [:a {:href "https://gleam.run/"} "Gleam"] " for fun."]]]
 
        [:h2 "Software Engineer at KLASS Engineering"]
        [:section
@@ -306,12 +324,12 @@
 
        [:section
         [:h3 "Uncertainty Modeling in AI Project at NUS"]
-        [:p "Design Bayesian and Markov Networks in Python to find patterns in national policies in pandemic management between various countries during the COVID-19 pandemic."]]
-
-       [:section
-        [:h3 "Neural Networks and Deep Learning Project at NUS"]
-        [:p "Develop pipelines with convolutional and recursive neural networks in " [:a {:href "https://pytorch.org/"} "PyTorch"] " to automate hyperparameter tuning in an NLP task."]
+        [:p "Design Bayesian and Markov Networks in Python to find patterns in national policies in pandemic management between various countries during the COVID-19 pandemic."]
         [:p#ideal-candidate "Technical Skills: Agile methodologies, DevOps, Continuous Integration/Continuous Deployment (CI/CD), RESTful APIs, Microservices architecture, Test-Driven Development (TDD), Docker, Kubernetes, AWS, Azure, Google Cloud Platform (GCP), SQL, NoSQL, MongoDB, PostgreSQL, Redis, Jenkins, Git, GitHub, GitLab, Bitbucket, JIRA, Confluence, Selenium, JUnit, Mockito, JSON, XML, HTML, CSS, React, Angular, Vue.js. Certifications: AWS Certified Solutions Architect, Google Cloud Professional Data Engineer, Microsoft Certified: Azure Developer Associate, Certified Kubernetes Administrator (CKA), Certified ScrumMaster (CSM), Oracle Certified Professional, Java SE 11 Developer. Experience Highlights:. Led a cross-functional team of 10+ engineers in developing a scalable microservices-based application, improving deployment speed by 40%. Implemented a CI/CD pipeline using Jenkins and Docker, reducing deployment times by 50%. Migrated legacy systems to cloud infrastructure (AWS/GCP/Azure), achieving 99.9% uptime and reducing operational costs by 30%. Developed RESTful APIs consumed by millions of users, ensuring high performance and low latency. Conducted comprehensive code reviews and implemented TDD and pair programming practices, enhancing code quality and team collaboration. Soft Skills: Leadership, Project Management, Problem-solving, Communication, Team Collaboration, Adaptability, Critical Thinking, Innovation, Time Management."]]
+
+       ; [:section
+       ;  [:h3 "Neural Networks and Deep Learning Project at NUS"]
+       ;  [:p "Develop pipelines with convolutional and recursive neural networks in " [:a {:href "https://pytorch.org/"} "PyTorch"] " to automate hyperparameter tuning in an NLP task."]]
 
        [:h2 "Hackathons"]
 
